@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package admin;
+
+service AdminService{
+    rpc CreateUser (CreateUserDto) returns (User) {};
+    rpc ListSoundStageUser(Empty) returns (Users) {};
+}
+
+message Users{
+    repeated User user = 1;
+}
+
+message Empty{}
+
+message CreateUserDto{
+    string userName = 1;
+    string email = 2;
+    string accessLevel = 3;
+}
+
+message User{
+    string id = 1;
+    string userName = 2;
+    string email = 3;
+    string accessLevel = 4;
+}
+
